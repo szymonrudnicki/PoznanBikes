@@ -7,7 +7,7 @@ import com.github.szyrudnicki.poznanbikes.R
 import com.github.szyrudnicki.poznanbikes.model.StationDomainModel
 import kotlin.properties.Delegates
 
-class StationsAdapter : RecyclerView.Adapter<StationViewHolder>() {
+class StationsAdapter(private val onClickListener: (StationDomainModel) -> Unit) : RecyclerView.Adapter<StationViewHolder>() {
 
     var stations: List<StationDomainModel> by Delegates.observable(listOf()) { _, _, _ ->
         notifyDataSetChanged()
@@ -21,6 +21,6 @@ class StationsAdapter : RecyclerView.Adapter<StationViewHolder>() {
     override fun getItemCount() = stations.size
 
     override fun onBindViewHolder(holder: StationViewHolder, position: Int) {
-        holder.bind(stations[position])
+        holder.bind(stations[position], onClickListener)
     }
 }

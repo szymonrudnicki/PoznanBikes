@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/stationsFragment">
+
+    <fragment
+        android:id="@+id/stationsFragment"
+        android:name="com.github.szyrudnicki.poznanbikes.ui.stations.StationsFragment"
+        android:label="PoznanBikes">
+        <action
+            android:id="@+id/action_stationFragment_to_stationDetailsFragment"
+            app:destination="@id/stationDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/stationDetailsFragment"
+        android:name="com.github.szyrudnicki.poznanbikes.ui.station_details.StationDetailsFragment"
+        android:label="Station Details" />
+
+</navigation>

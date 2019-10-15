@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.szyrudnicki.poznanbikes.R
@@ -20,7 +21,7 @@ class StationsFragment : Fragment() {
 
     private val viewModel by viewModels<StationsViewModel>()
 
-    private val stationsAdapter = StationsAdapter()
+    private val stationsAdapter = StationsAdapter(::showStationDetails)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.fragment_stations, container, false)
@@ -49,4 +50,7 @@ class StationsFragment : Fragment() {
         }
     }
 
+    private fun showStationDetails(station: StationDomainModel) {
+        findNavController().navigate(R.id.action_stationFragment_to_stationDetailsFragment)
+    }
 }

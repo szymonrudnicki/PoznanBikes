@@ -6,7 +6,9 @@ import com.github.szyrudnicki.poznanbikes.model.StationDomainModel
 import kotlinx.android.synthetic.main.item_station.view.*
 
 class StationViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(station: StationDomainModel) = with(itemView) {
-        item_station_view.setup(station)
-    }
+    fun bind(station: StationDomainModel, onClickListener: (StationDomainModel) -> Unit) =
+        with(itemView) {
+            item_station_view.setup(station)
+            setOnClickListener { onClickListener(station) }
+        }
 }

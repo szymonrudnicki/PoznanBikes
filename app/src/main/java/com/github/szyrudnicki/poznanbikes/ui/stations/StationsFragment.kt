@@ -1,15 +1,12 @@
 package com.github.szyrudnicki.poznanbikes.ui.stations
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.szyrudnicki.poznanbikes.R
 import com.github.szyrudnicki.poznanbikes.extensions.observe
@@ -33,7 +30,6 @@ class StationsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         with(viewModel) {
             getStations()
             observe(stationsLiveData, ::loadStations)
@@ -51,6 +47,7 @@ class StationsFragment : Fragment() {
     }
 
     private fun showStationDetails(station: StationDomainModel) {
-        findNavController().navigate(R.id.action_stationFragment_to_stationDetailsFragment)
+        val action = StationsFragmentDirections.actionStationFragmentToStationDetailsFragment(station)
+        findNavController().navigate(action)
     }
 }

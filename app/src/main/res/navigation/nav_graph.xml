@@ -16,6 +16,10 @@
     <fragment
         android:id="@+id/stationDetailsFragment"
         android:name="com.github.szyrudnicki.poznanbikes.ui.station_details.StationDetailsFragment"
-        android:label="Station Details" />
+        android:label="Station Details">
+        <argument
+            android:name="station"
+            app:argType="com.github.szyrudnicki.poznanbikes.model.StationDomainModel" />
+    </fragment>
 
 </navigation>
